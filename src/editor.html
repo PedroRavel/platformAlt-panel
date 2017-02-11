@@ -1,0 +1,41 @@
+<div class="section gr-form-group">
+
+<h5 class="section-heading">Options</h5>
+  <div class="gf-form">
+    <label class="gf-form-label width-10">Bg Color</label>
+    <span class="max-width-4">
+      <spectrum-picker class="gf-form-input" ng-model="ctrl.panel.bgColor" ng-change="ctrl.render()" ></spectrum-picker>
+    </span>
+  </div>
+</div>
+
+<div class="section gr-form-group">
+  <h5 class="section-heading">Transaction options</h5>
+  <div class="gf-form">
+    <label class="gf-form-label width-8">Transaction</label>
+    <div class="gf-form-select-wrapper max-width-12">
+      <select class="input-small gf-form-input"  ng-model="ctrl.panel.childChoice" ng-options="t for t in ctrl.panel.aliases" ng-change="ctrl.render()"></select>
+    </div>
+  </div>
+  <div class="gf-form">
+    <label class="gf-form-label width-8">Label Name</label>
+    <input type="text" class="gf-form-input max-width-12" ng-model="ctrl.panel.platformChildren[ctrl.panel.childChoice].defect.name" ng-change="ctrl.render()" ng-model-onblur>
+  </div>
+    <gf-form-switch class="gf-form" label="{{ctrl.panel.platformChildren[ctrl.panel.childChoice].defect.name}}" label-class="width-16 text-center" checked="ctrl.panel.platformChildren[ctrl.panel.childChoice].defect.value" on-change="ctrl.calculateTransaction()"></gf-form-switch>
+
+  <div class="gf-form">
+    <label class="gf-form-label width-5">Warning</label>
+    <input type="text" class="gf-form-input max-width-5" ng-model="ctrl.panel.platformChildren[ctrl.panel.childChoice].warningThreshhold" ng-change="ctrl.calculateTransaction()" ng-model-onblur>
+    <label class="gf-form-label width-5">Critical</label>
+    <input type="text" class="gf-form-input max-width-5" ng-model="ctrl.panel.platformChildren[ctrl.panel.childChoice].criticalThreshold" ng-change="ctrl.calculateTransaction()" ng-model-onblur>
+  </div>
+
+
+</div>
+<div class="section gr-form-group">
+  <h5 class="section-heading">Change All Labels</h5>
+<div class="gf-form">
+  <label class="gf-form-label width-8">Label Name</label>
+  <input type="text" class="gf-form-input max-width-12" ng-model="label" ng-change="ctrl.setAllLabels(label)" ng-model-onblur>
+</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="section gr-form-group" ng-repeat="(key, value) in ctrl.panel.platformChildren">
+  <h5 class="section-heading">{{key}} options</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-4">Label</label>
+      <input type="text" class="gf-form-input max-width-10" ng-model="value.defect.name" ng-change="ctrl.replaceNames()" ng-model-onblur>
+    </div>
+      <gf-form-switch class="gf-form" label="{{value.defect.name}}" label-class="width-9" checked="value.defect.value" on-change="ctrl.calculateTransaction()"></gf-form-switch>
+
+    <div class="gf-form">
+      <label class="gf-form-label width-5">Warning</label>
+      <input type="text" class="gf-form-input max-width-4" ng-model="value.warningThreshhold" ng-change="ctrl.calculateTransaction()" ng-model-onblur>
+    </div>
+      <div class="gf-form">
+      <label class="gf-form-label width-5">Critical</label>
+      <input type="text" class="gf-form-input max-width-4" ng-model="value.criticalThreshold" ng-change="ctrl.calculateTransaction()" ng-model-onblur>
+    </div>
+    <input type="submit" class="gf-form-btn max-width-16" ng-model = "key" value = "Remove"  ng-click="ctrl.removeTransaction(key)">
+ </div>
